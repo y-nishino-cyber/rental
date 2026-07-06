@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鯖江のレンタカー｜軽トラ・軽バン・軽自動車｜ピットステーションSABAE</title>
+<meta name="description" content="鯖江市のレンタカーは地元の車屋・ピットステーションSABAEへ。軽トラ4,500円/日、軽自動車5,500円/日（税込）。引越し・荷物運び・帰省の足に。予約はお電話一本 0778-42-5105。">
+<style>
+  :root{
+    --blue:#1c6fb8; --blue-d:#155a96; --sky:#eaf4fc;
+    --orange:#f07f23; --orange-d:#d96c12;
+    --ink:#243038; --sub:#5b6b76; --line:#d8e4ee; --bg:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  a{color:var(--blue)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px}
+  /* header */
+  header{background:#fff;border-bottom:1px solid var(--line);padding:10px 0}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .brand{font-weight:700;color:var(--blue);font-size:15px;line-height:1.3}
+  .brand small{display:block;color:var(--sub);font-weight:500;font-size:11px}
+  .head-tel{text-align:right;font-size:12px;color:var(--sub)}
+  .head-tel a{font-size:20px;font-weight:800;color:var(--blue-d);text-decoration:none;white-space:nowrap}
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--sky),#fff);padding:42px 0 34px;text-align:center}
+  .hero h1{font-size:clamp(24px,5.6vw,38px);line-height:1.35;letter-spacing:.02em}
+  .hero h1 .em{color:var(--blue-d)}
+  .hero p.lead{margin:14px auto 0;max-width:34em;color:var(--sub);font-size:clamp(13px,3.6vw,16px)}
+  .cta{display:inline-block;margin-top:22px;background:var(--orange);color:#fff;text-decoration:none;
+       font-weight:800;font-size:clamp(19px,5vw,26px);padding:16px 34px;border-radius:999px;
+       box-shadow:0 4px 14px rgba(240,127,35,.35)}
+  .cta:hover{background:var(--orange-d)}
+  .cta small{display:block;font-size:12px;font-weight:600;opacity:.95}
+  .hero .hours{margin-top:12px;font-size:12.5px;color:var(--sub)}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .badge{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:12px;color:var(--blue-d);font-weight:600}
+  /* sections */
+  section{padding:44px 0}
+  section.alt{background:var(--sky)}
+  h2{font-size:clamp(20px,4.6vw,27px);text-align:center;color:var(--blue-d);margin-bottom:8px}
+  .h2sub{text-align:center;color:var(--sub);font-size:13.5px;margin-bottom:26px}
+  /* use cases */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:0 2px 8px rgba(28,58,90,.05)}
+  .card .icon{font-size:34px}
+  .card h3{font-size:17.5px;margin:8px 0 6px;color:var(--ink)}
+  .card p{font-size:13.5px;color:var(--sub)}
+  .card .price{margin-top:10px;font-size:14px;font-weight:700;color:var(--blue-d)}
+  .card .price b{font-size:20px}
+  /* price table */
+  .tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+  th{background:var(--sky);color:var(--blue-d);font-size:12.5px}
+  td.cls{text-align:left;font-weight:700}
+  td.cls small{display:block;font-weight:500;color:var(--sub);font-size:11.5px;white-space:normal}
+  td.cls{white-space:normal}
+  tr:last-child td{border-bottom:none}
+  .note{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.8}
+  /* lineup */
+  .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+  .car{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .car .tag{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:var(--blue);border-radius:4px;padding:2px 8px;margin-bottom:6px}
+  .car .tag.tr{background:#4a8f3c}
+  .car h4{font-size:15.5px}
+  .car p{font-size:12px;color:var(--sub);margin-top:3px}
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;counter-reset:step}
+  .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:16px;
+    background:var(--orange);color:#fff;font-weight:800;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step h3{font-size:15.5px;margin:4px 0 6px}
+  .step p{font-size:13px;color:var(--sub)}
+  /* company */
+  .company{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+  .company dl{display:grid;grid-template-columns:7.5em 1fr;gap:8px 12px;font-size:14px}
+  .company dt{color:var(--sub);font-weight:600}
+  /* footer */
+  footer{background:var(--blue-d);color:#cfe3f5;text-align:center;padding:26px 18px 110px;font-size:12px;line-height:2}
+  footer a{color:#fff}
+  /* sticky call bar (mobile) */
+  .callbar{position:fixed;left:0;right:0;bottom:0;background:var(--orange);z-index:50;
+    display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;
+    box-shadow:0 -4px 14px rgba(0,0,0,.18)}
+  .callbar a{color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:.02em}
+  .callbar .sub{color:#fff;font-size:11px;opacity:.95;line-height:1.4;text-align:left}
+  @media(min-width:760px){.callbar{display:none}footer{padding-bottom:26px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head">
+    <div class="brand">ピットステーションSABAE レンタカー<small>福井県鯖江市｜整備工場が母体のレンタカー</small></div>
+    <div class="head-tel">ご予約・空き確認<br><a href="tel:0778-42-5105">0778-42-5105</a></div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>鯖江のレンタカー、<span class="em">電話一本。</span></h1>
+    <p class="lead">軽トラ・軽バンでの荷物運びから、帰省の足まで。地元の車屋が9台でお応えします。ネット予約フォームはありません——お電話いただければ、その場で空きと料金をお答えします。</p>
+    <a class="cta" href="tel:0778-42-5105">📞 0778-42-5105<small>受付 9:00〜18:00</small></a>
+    <div class="hours">株式会社ピットステーションSABAE（鯖江市鳥羽1丁目4-3）</div>
+    <div class="badges">
+      <span class="badge">軽トラ 4,500円/日〜</span>
+      <span class="badge">全車 前後ドラレコ搭載</span>
+      <span class="badge">チャイルドシート固定（ISOFIX）対応車あり</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>こんなときに使われています</h2>
+    <p class="h2sub">用途を電話で伝えていただければ、ぴったりの1台をご案内します</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🚚</div>
+        <h3>運ぶ——引越し・大物・粗大ゴミ</h3>
+        <p>家具や家電の運搬、引越しの荷物、処理場への粗大ゴミの持ち込みに。荷台をがんがん使える軽トラと、雨に強い軽バンをご用意しています。軽トラはマニュアル車です（AT限定免許の方には軽バンをご案内します）。</p>
+        <div class="price">軽トラック <b>4,500</b>円/日（税込）〜</div>
+      </div>
+      <div class="card">
+        <div class="icon">🏠</div>
+        <h3>帰省の足に——駅から、実家から</h3>
+        <p>福井への帰省中の移動用に。軽乗用車は全車ナビ・ETC・ドライブレコーダー付き。チャイルドシートをしっかり固定できる車（ISOFIX対応）もあるので、お子さま連れも安心です。</p>
+        <div class="price">軽自動車 <b>5,500</b>円/日（税込）</div>
+      </div>
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>もしもの時に——修理・事故のあいだ</h3>
+        <p>突然の故障や事故で、お車をお預かりしている間のつなぎに。無料代車では物足りないときの1台としてもどうぞ。保険会社対応のご相談も承ります。</p>
+        <div class="price">お電話でご相談ください</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>料金表</h2>
+    <p class="h2sub">すべて税込・分かりやすい1日料金です</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>クラス</th><th>1日料金</th><th>免責補償/日</th></tr>
+        <tr>
+          <td class="cls">軽トラック<small>アクティトラック（MT）</small></td>
+          <td><b>4,500円</b></td><td>1,100円</td>
+        </tr>
+        <tr>
+          <td class="cls">軽自動車・軽バン<small>N-BOX／タント／スペーシア／N-WGN／ハイゼットカーゴ ほか</small></td>
+          <td><b>5,500円</b></td><td>1,100円</td>
+        </tr>
+        <tr>
+          <td class="cls">コンパクト・ミニバン<small>ヤリス4WD／フリードスパイク</small></td>
+          <td><b>7,700円</b></td><td>1,100円</td>
+        </tr>
+      </table>
+    </div>
+    <p class="note">
+      ※ 軽トラック（アクティトラック）はマニュアル車です。<b>AT限定免許では運転できません</b>（軽バンはATです）。<br>
+      ※ ダブル免責補償（自己負担をさらに軽減）は1,650円/日。<br>
+      ※ <b>冬期は冬タイヤを追加料金なしで装着</b>してお渡しします。<br>
+      ※ 1週間を超える長期のご利用は、内容を伺ったうえでお見積りします。お電話でご相談ください。<br>
+      ※ 車種やご利用状況により金額が変わる場合があります。まずはお電話でお尋ねください。
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>ラインナップ（9台）</h2>
+    <p class="h2sub">軽トラを除く全車に カーナビ・ETC・前後ドライブレコーダーを搭載</p>
+    <div class="fleet">
+      <div class="car"><span class="tag tr">運ぶ</span><h4>アクティトラック</h4><p>軽トラック・2人乗り・MT。荷台に気兼ねなく積める働く1台。ドラレコ付き（ナビ・ETCはありません）。※マニュアル車のためAT限定免許は運転不可。</p></div>
+      <div class="car"><span class="tag tr">運ぶ</span><h4>ハイゼットカーゴ</h4><p>軽バン・4人乗り・AT。雨の日の荷物運びや配達に。</p></div>
+      <div class="car"><span class="tag">軽</span><h4>N-BOX</h4><p>広くて走りやすい人気No.1軽。ISOFIX対応。</p></div>
+      <div class="car"><span class="tag">軽</span><h4>タントカスタム</h4><p>スライドドアで乗り降りらく。お子さま連れに。</p></div>
+      <div class="car"><span class="tag">軽</span><h4>スペーシア</h4><p>背高でゆったり。買い物にも帰省にも。</p></div>
+      <div class="car"><span class="tag">軽</span><h4>N-WGNカスタム</h4><p>落ち着いた内装の軽。日常の足に。</p></div>
+      <div class="car"><span class="tag">軽</span><h4>N-WGN</h4><p>気軽に使えるスタンダード軽。</p></div>
+      <div class="car"><span class="tag">4WD</span><h4>ヤリス AWD</h4><p>コンパクト・5人乗り。雪の福井でも安心の四輪駆動。</p></div>
+      <div class="car"><span class="tag">5人＋荷物</span><h4>フリードスパイク</h4><p>人も荷物もたっぷり。自転車も積める広さ。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>ご利用の流れ</h2>
+    <p class="h2sub">面倒な会員登録はありません</p>
+    <div class="flow">
+      <div class="step"><h3>お電話ください</h3><p>ご希望の日にちと用途をお聞かせください。その場で空き状況と料金をお答えします。<br><a href="tel:0778-42-5105"><b>0778-42-5105</b></a>（9:00〜18:00）</p></div>
+      <div class="step"><h3>免許証のご提示・料金のお支払い</h3><p>店舗（鯖江市鳥羽1丁目4-3）にて、運転される方全員の免許証をご提示ください。<b>ご利用料金は出発前にお支払いいただきます</b>（現金・クレジットカード・PayPay）。</p></div>
+      <div class="step"><h3>出発</h3><p>お手続き後、車両の説明をしてお渡しします。返却時間はお気軽にご相談ください。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>店舗・会社情報</h2>
+    <div class="company">
+      <dl>
+        <dt>会社名</dt><dd>株式会社ピットステーションSABAE</dd>
+        <dt>所在地</dt><dd>〒916-0013 福井県鯖江市鳥羽1丁目4-3　<a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E4%BA%95%E7%9C%8C%E9%AF%96%E6%B1%9F%E5%B8%82%E9%B3%A5%E7%BE%BD1%E4%B8%81%E7%9B%AE4-3" target="_blank" rel="noopener">地図を見る</a></dd>
+        <dt>電話</dt><dd><a href="tel:0778-42-5105">0778-42-5105</a>（受付 9:00〜18:00）</dd>
+        <dt>お支払い</dt><dd>現金／クレジットカード／PayPay（ご利用料金は先払いです）</dd>
+        <dt>定休日</dt><dd>土曜・日曜・祝日（会社カレンダーによる）※定休日のお渡し・ご返却はお電話でご相談ください</dd>
+        <dt>事業</dt><dd>自動車販売・整備・車検・レンタカー</dd>
+        <dt>会社HP</dt><dd><a href="https://www.pitstation-sabae.jp/" target="_blank" rel="noopener">www.pitstation-sabae.jp</a>（車検・整備・修理はこちら）</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>整備工場が母体のレンタカーです。日々の点検整備も自社の国家資格整備士が行っています。</div>
+  <div>© 株式会社ピットステーションSABAE</div>
+</footer>
+
+<div class="callbar">
+  <div class="sub">ご予約・空き確認<br>受付 9:00〜18:00</div>
+  <a href="tel:0778-42-5105">📞 0778-42-5105</a>
+</div>
+
+</body>
+</html>
