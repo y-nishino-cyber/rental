@@ -1,232 +1,443 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>鯖江のレンタカー｜軽トラ・軽バン・軽自動車｜ピットステーションSABAE</title>
-<meta name="description" content="鯖江市のレンタカーは地元の車屋・ピットステーションSABAEへ。軽トラ4,500円/日、軽自動車5,500円/日（税込）。引越し・荷物運び・帰省の足に。予約はお電話一本 0778-42-5105。">
-<style>
-  :root{
-    --blue:#1c6fb8; --blue-d:#155a96; --sky:#eaf4fc;
-    --orange:#f07f23; --orange-d:#d96c12;
-    --ink:#243038; --sub:#5b6b76; --line:#d8e4ee; --bg:#ffffff;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-  a{color:var(--blue)}
-  .wrap{max-width:960px;margin:0 auto;padding:0 18px}
-  /* header */
-  header{background:#fff;border-bottom:1px solid var(--line);padding:10px 0}
-  .head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-  .brand{font-weight:700;color:var(--blue);font-size:15px;line-height:1.3}
-  .brand small{display:block;color:var(--sub);font-weight:500;font-size:11px}
-  .head-tel{text-align:right;font-size:12px;color:var(--sub)}
-  .head-tel a{font-size:20px;font-weight:800;color:var(--blue-d);text-decoration:none;white-space:nowrap}
-  /* hero */
-  .hero{background:linear-gradient(180deg,var(--sky),#fff);padding:42px 0 34px;text-align:center}
-  .hero h1{font-size:clamp(24px,5.6vw,38px);line-height:1.35;letter-spacing:.02em}
-  .hero h1 .em{color:var(--blue-d)}
-  .hero p.lead{margin:14px auto 0;max-width:34em;color:var(--sub);font-size:clamp(13px,3.6vw,16px)}
-  .cta{display:inline-block;margin-top:22px;background:var(--orange);color:#fff;text-decoration:none;
-       font-weight:800;font-size:clamp(19px,5vw,26px);padding:16px 34px;border-radius:999px;
-       box-shadow:0 4px 14px rgba(240,127,35,.35)}
-  .cta:hover{background:var(--orange-d)}
-  .cta small{display:block;font-size:12px;font-weight:600;opacity:.95}
-  .hero .hours{margin-top:12px;font-size:12.5px;color:var(--sub)}
-  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-  .badge{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:12px;color:var(--blue-d);font-weight:600}
-  /* sections */
-  section{padding:44px 0}
-  section.alt{background:var(--sky)}
-  h2{font-size:clamp(20px,4.6vw,27px);text-align:center;color:var(--blue-d);margin-bottom:8px}
-  .h2sub{text-align:center;color:var(--sub);font-size:13.5px;margin-bottom:26px}
-  /* use cases */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:0 2px 8px rgba(28,58,90,.05)}
-  .card .icon{font-size:34px}
-  .card h3{font-size:17.5px;margin:8px 0 6px;color:var(--ink)}
-  .card p{font-size:13.5px;color:var(--sub)}
-  .card .price{margin-top:10px;font-size:14px;font-weight:700;color:var(--blue-d)}
-  .card .price b{font-size:20px}
-  /* price table */
-  .tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px}
-  table{border-collapse:collapse;width:100%;font-size:14px}
-  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
-  th{background:var(--sky);color:var(--blue-d);font-size:12.5px}
-  td.cls{text-align:left;font-weight:700}
-  td.cls small{display:block;font-weight:500;color:var(--sub);font-size:11.5px;white-space:normal}
-  td.cls{white-space:normal}
-  tr:last-child td{border-bottom:none}
-  .note{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.8}
-  /* lineup */
-  .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-  .car{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-  .car .tag{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:var(--blue);border-radius:4px;padding:2px 8px;margin-bottom:6px}
-  .car .tag.tr{background:#4a8f3c}
-  .car h4{font-size:15.5px}
-  .car p{font-size:12px;color:var(--sub);margin-top:3px}
-  /* flow */
-  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;counter-reset:step}
-  .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
-  .step::before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:16px;
-    background:var(--orange);color:#fff;font-weight:800;width:28px;height:28px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:14px}
-  .step h3{font-size:15.5px;margin:4px 0 6px}
-  .step p{font-size:13px;color:var(--sub)}
-  /* company */
-  .company{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
-  .company dl{display:grid;grid-template-columns:7.5em 1fr;gap:8px 12px;font-size:14px}
-  .company dt{color:var(--sub);font-weight:600}
-  /* footer */
-  footer{background:var(--blue-d);color:#cfe3f5;text-align:center;padding:26px 18px 110px;font-size:12px;line-height:2}
-  footer a{color:#fff}
-  /* sticky call bar (mobile) */
-  .callbar{position:fixed;left:0;right:0;bottom:0;background:var(--orange);z-index:50;
-    display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;
-    box-shadow:0 -4px 14px rgba(0,0,0,.18)}
-  .callbar a{color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:.02em}
-  .callbar .sub{color:#fff;font-size:11px;opacity:.95;line-height:1.4;text-align:left}
-  @media(min-width:760px){.callbar{display:none}footer{padding-bottom:26px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>鯖江のレンタカー｜軽トラ・軽バン・軽自動車｜ピットステーションSABAE</title>
+  <meta name="description" content="鯖江市のレンタカーは地元の車屋・ピットステーションSABAEへ。軽トラ4,500円/日、軽自動車5,500円/日（税込）。引越し・荷物運び・帰省の足に。予約はお電話一本 0778-42-5105。">
+  <link rel="canonical" href="https://rental.pitstation-sabae.co.jp/">
+  <meta property="og:title" content="鯖江のレンタカー｜軽トラ・軽バン・軽自動車｜ピットステーションSABAE">
+  <meta property="og:description" content="鯖江市のレンタカーは地元の車屋・ピットステーションSABAEへ。軽トラ4,500円/日、軽自動車5,500円/日（税込）。予約はお電話一本 0778-42-5105。">
+  <meta property="og:url" content="https://rental.pitstation-sabae.co.jp/">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#12301f; --green2:#1b4a30; --gcard:#1a3b28; --gline:#2a5038; --gpill:#17402b; --gpillb:#2f5a40;
+      --gtx:#c6dccd; --gtx2:#dbe8df; --gtx3:#e6f0e9; --gmint:#cfe6b8; --gmute:#7fa78e;
+      --text:#1b2430; --body:#33404f; --mute:#55606e;
+      --paper:#f6f5f2; --line:#e0e0dc; --line2:#e6e4dd; --line3:#d5d3cc;
+      --red:#b8442c; --leaf:#5d8a6f;
+      --serif:'Shippori Mincho B1',serif;
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;background:var(--paper);color:var(--text);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-feature-settings:"palt" 1;}
+    img{max-width:100%;}
+    a{color:var(--green2);text-decoration:none;}
+    a:hover{color:var(--red);}
+    .hero-nav a{color:#ffffff;} .hero-nav a:hover{color:var(--gmint);}
+    .wrap{width:100%;max-width:1200px;margin:0 auto;background:var(--paper);color:var(--text);}
+    .serif{font-family:var(--serif);font-weight:700;}
+
+    /* ===== hero ===== */
+    .hero{position:relative;background:var(--green);color:#ffffff;padding:0 0 40px;}
+    .hero-top{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:16px;}
+    .logo-chip{background:#ffffff;border-radius:5px;padding:7px 11px;display:inline-block;}
+    .logo-chip img{height:36px;width:auto;display:block;}
+    .hero-cert{font-size:11px;letter-spacing:0.12em;color:var(--gtx);}
+    .hero-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;font-weight:500;color:#ffffff;}
+    .hero-body{display:flex;flex-direction:column;gap:24px;padding:24px 16px 0;}
+    .hero-copy{display:flex;flex-direction:column;gap:16px;max-width:640px;}
+    .hero-kicker{font-size:12px;letter-spacing:0.18em;color:var(--gtx);}
+    .hero-title{font-family:var(--serif);font-weight:700;font-size:36px;line-height:1.3;letter-spacing:0.02em;color:#ffffff;}
+    .hero-lead{font-size:15px;line-height:1.95;color:var(--gtx3);text-wrap:pretty;}
+    .hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
+    .hero-tags span{font-size:13px;background:var(--gpill);border:1px solid var(--gpillb);border-radius:4px;padding:7px 13px;color:var(--gtx2);}
+    .hero-card{display:flex;flex-direction:column;gap:10px;background:#ffffff;color:var(--text);border-radius:6px;padding:22px 20px;box-shadow:0 18px 40px rgba(0,0,0,0.28);}
+    .hero-card-t{font-size:16px;font-weight:700;color:var(--green2);}
+    .tel-btn{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--red);color:#ffffff;border-radius:5px;padding:16px 12px;}
+    .tel-btn:hover{color:#ffffff;}
+    .tel-btn .s{font-size:12px;letter-spacing:0.12em;opacity:0.9;color:#ffffff;}
+    .tel-btn .n{font-family:var(--serif);font-weight:700;font-size:32px;letter-spacing:0.02em;color:#ffffff;}
+    .hero-card-note{font-size:14px;line-height:1.9;color:var(--mute);}
+
+    /* ===== sections ===== */
+    .sec{padding:48px 16px;display:flex;flex-direction:column;gap:24px;}
+    .kicker{font-size:12px;letter-spacing:0.24em;color:var(--red);font-weight:700;}
+    .kicker.mint{color:var(--gmint);}
+    .h2{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:0.03em;line-height:1.4;color:var(--green2);}
+    .h2.w{color:#ffffff;}
+    .lead{font-size:16px;line-height:2;color:var(--body);}
+    .sec-head{display:flex;flex-direction:column;gap:14px;}
+
+    /* こんなとき */
+    .youto{background:var(--paper);}
+    .uc-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+    .uc-card{background:#ffffff;border:1px solid var(--line);padding:26px 22px;display:flex;flex-direction:column;gap:14px;}
+    .uc-card .t{font-family:var(--serif);font-weight:700;font-size:21px;color:var(--green2);line-height:1.5;}
+    .uc-card .d{font-size:15px;line-height:2;color:var(--body);text-wrap:pretty;}
+    .uc-price{margin-top:auto;border-top:1px solid var(--line2);padding-top:14px;display:flex;align-items:baseline;gap:8px;}
+    .uc-price .c{font-size:14px;color:var(--mute);}
+    .uc-price .p{font-family:var(--serif);font-weight:700;font-size:26px;color:var(--red);}
+    .uc-price .u{font-size:13px;color:var(--mute);}
+    .uc-tel{margin-top:auto;border-top:1px solid var(--line2);padding-top:14px;font-size:15px;color:var(--green2);font-weight:500;}
+
+    /* 料金表 */
+    .ryokin{background:#ffffff;}
+    .price-table{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr);gap:0;border-top:2px solid var(--green2);font-size:14px;}
+    .price-table .hd{padding:12px 10px;background:var(--paper);color:var(--mute);font-size:12px;letter-spacing:0.04em;border-bottom:1px solid var(--line3);}
+    .price-table .hd.r{text-align:right;}
+    .price-table .cls{padding:16px 10px;border-bottom:1px solid var(--line2);line-height:1.7;}
+    .price-table .cls .nm{font-weight:700;color:var(--green2);}
+    .price-table .cls .sub{font-size:12.5px;color:var(--mute);}
+    .price-table .yen{padding:16px 10px;border-bottom:1px solid var(--line2);text-align:right;font-family:var(--serif);font-weight:700;font-size:18px;color:var(--green2);}
+    .price-table .men{padding:16px 10px;border-bottom:1px solid var(--line2);text-align:right;color:var(--body);}
+    .price-notes{font-size:14px;line-height:2.1;color:var(--mute);text-wrap:pretty;}
+    .price-notes b{color:var(--body);}
+
+    /* ラインナップ */
+    .lineup{background:var(--paper);}
+    .lu-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+    .lu-card{background:#ffffff;border:1px solid var(--line);display:flex;flex-direction:column;}
+    .lu-card img{width:100%;height:220px;object-fit:cover;display:block;}
+    .lu-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;}
+    .lu-head{display:flex;align-items:center;gap:10px;}
+    .tag{font-size:11.5px;letter-spacing:0.08em;color:#ffffff;border-radius:3px;padding:3px 9px;}
+    .tag.g{background:var(--green2);} .tag.leaf{background:var(--leaf);} .tag.r{background:var(--red);}
+    .lu-name{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--green2);}
+    .lu-d{font-size:14px;line-height:1.9;color:var(--body);text-wrap:pretty;}
+    .lu-note{font-size:14px;color:var(--mute);}
+    .lu-note b{color:var(--body);}
+
+    /* ご利用の流れ */
+    .nagare{background:var(--green);color:#ffffff;}
+    .nagare .lead{color:var(--gtx2);}
+    .fl-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+    .fl-card{background:var(--gcard);border:1px solid var(--gline);padding:26px 22px;display:flex;flex-direction:column;gap:14px;}
+    .fl-card .no{font-family:var(--serif);font-weight:700;font-size:28px;color:var(--gmint);}
+    .fl-card .t{font-size:19px;font-weight:700;color:#ffffff;}
+    .fl-card .d{font-size:15px;line-height:2;color:var(--gtx);text-wrap:pretty;}
+    .fl-card .tel{font-size:15px;color:#ffffff;}
+    .fl-card .tel a{color:#ffffff;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+
+    /* 店舗情報 */
+    .tenpo{background:#ffffff;}
+    .tp-grid{display:flex;flex-direction:column;gap:24px;}
+    .tp-table{display:flex;flex-direction:column;border-top:1px solid var(--line3);font-size:15px;}
+    .tp-row{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-bottom:1px solid var(--line2);}
+    .tp-row .k{font-size:12.5px;color:var(--mute);letter-spacing:0.04em;white-space:nowrap;}
+    .tp-row .v{line-height:1.8;}
+    .tp-row .v.b{font-weight:700;color:var(--green2);}
+    .tp-note{font-size:14px;color:var(--mute);}
+    .tp-side{display:flex;flex-direction:column;gap:20px;}
+    .map-box{border:1px solid var(--line);background:var(--paper);}
+    .map-box iframe{display:block;width:100%;height:300px;border:0;}
+    .tp-quote{background:var(--paper);border-left:3px solid var(--red);padding:18px 22px;font-size:15px;line-height:2;color:var(--body);text-wrap:pretty;}
+
+    /* footer */
+    .footer{background:var(--green);color:#ffffff;padding:44px 16px 110px;display:flex;flex-direction:column;gap:24px;}
+    .ft-grid{display:flex;flex-direction:column;gap:20px;}
+    .ft-l{display:flex;flex-direction:column;gap:14px;}
+    .ft-name{font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:0.04em;color:#ffffff;}
+    .ft-info{font-size:14px;line-height:2;color:var(--gtx2);}
+    .ft-tel{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--red);color:#ffffff;border-radius:5px;padding:18px 30px;width:fit-content;}
+    .ft-tel:hover{color:#ffffff;}
+    .ft-tel .s{font-size:12px;letter-spacing:0.12em;opacity:0.9;color:#ffffff;}
+    .ft-tel .n{font-family:var(--serif);font-weight:700;font-size:28px;letter-spacing:0.02em;color:#ffffff;}
+    .ft-copy{border-top:1px solid var(--gline);padding-top:20px;font-size:13px;color:var(--gmute);}
+
+    /* mobile fixed call bar */
+    .call-bar{position:fixed;left:0;right:0;bottom:0;display:flex;box-shadow:0 -6px 18px rgba(0,0,0,0.18);z-index:50;}
+    .call-bar a{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:66px;background:var(--red);color:#ffffff;padding:10px 16px;}
+    .call-bar a:hover{color:#ffffff;}
+    .call-bar .in{display:flex;flex-direction:column;line-height:1.25;}
+    .call-bar .t{font-size:18px;font-weight:700;color:#ffffff;letter-spacing:0.02em;}
+    .call-bar .s{font-size:11.5px;color:#f4d9d1;}
+
+    /* ============ PC (min-width:900px) ============ */
+    @media (min-width:900px){
+      .hero{padding:0 0 64px;}
+      .hero-top{flex-direction:row;align-items:center;justify-content:space-between;padding:24px 56px;gap:12px;}
+      .hero-top-l{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+      .logo-chip{border-radius:6px;padding:8px 14px;}
+      .logo-chip img{height:56px;}
+      .hero-nav{gap:26px;font-size:19px;flex-wrap:nowrap;}
+      .hero-body{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:48px;padding:56px 56px 0;}
+      .hero-copy{gap:22px;}
+      .hero-kicker{font-size:14px;letter-spacing:0.22em;}
+      .hero-title{font-size:58px;}
+      .hero-lead{font-size:17px;line-height:2;}
+      .hero-tags span{font-size:13.5px;}
+      .hero-card{min-width:320px;padding:26px 28px;}
+      .tel-btn .n{font-size:34px;}
+      .sec{padding:88px 56px;gap:36px;}
+      .kicker{font-size:13px;letter-spacing:0.26em;}
+      .h2{font-size:44px;}
+      .uc-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+      .uc-card{padding:30px 28px;}
+      .uc-card .t{font-size:22px;}
+      .price-table{font-size:16px;}
+      .price-table .hd{padding:14px 20px;font-size:14px;letter-spacing:0.06em;}
+      .price-table .cls{padding:18px 20px;}
+      .price-table .cls .sub{font-size:14px;}
+      .price-table .yen{padding:18px 20px;font-size:22px;}
+      .price-table .men{padding:18px 20px;}
+      .lu-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+      .lu-body{padding:20px 22px 24px;}
+      .fl-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+      .fl-card{padding:30px 28px;}
+      .fl-card .no{font-size:30px;}
+      .fl-card .t{font-size:20px;}
+      .tp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;align-items:start;}
+      .tp-table{display:grid;grid-template-columns:auto minmax(0,1fr);font-size:16px;}
+      .tp-row{display:contents;}
+      .tp-row .k{padding:16px 20px;color:var(--mute);border-bottom:1px solid var(--line2);font-size:16px;letter-spacing:0;}
+      .tp-row .v{padding:16px 20px;border-bottom:1px solid var(--line2);}
+      .footer{padding:56px 56px 40px;gap:28px;}
+      .ft-grid{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:40px;}
+      .logo-chip.ft{padding:9px 15px;border-radius:6px;}
+      .logo-chip.ft img{height:40px;}
+      .ft-name{font-size:18px;}
+      .call-bar{display:none;}
+    }
+  </style>
 </head>
 <body>
+<div class="wrap">
 
-<header>
-  <div class="wrap head">
-    <div class="brand">ピットステーションSABAE レンタカー<small>福井県鯖江市｜整備工場が母体のレンタカー</small></div>
-    <div class="head-tel">ご予約・空き確認<br><a href="tel:0778-42-5105">0778-42-5105</a></div>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="wrap">
-    <h1>鯖江のレンタカー、<span class="em">電話一本。</span></h1>
-    <p class="lead">軽トラ・軽バンでの荷物運びから、帰省の足まで。地元の車屋が9台でお応えします。ネット予約フォームはありません——お電話いただければ、その場で空きと料金をお答えします。</p>
-    <a class="cta" href="tel:0778-42-5105">📞 0778-42-5105<small>受付 9:00〜18:00</small></a>
-    <div class="hours">株式会社ピットステーションSABAE（鯖江市鳥羽1丁目4-3）</div>
-    <div class="badges">
-      <span class="badge">軽トラ 4,500円/日〜</span>
-      <span class="badge">全車 前後ドラレコ搭載</span>
-      <span class="badge">チャイルドシート固定（ISOFIX）対応車あり</span>
+  <!-- ヒーロー -->
+  <header class="hero">
+    <div class="hero-top">
+      <div class="hero-top-l">
+        <div class="logo-chip"><img src="./logo.png" alt="PITSTATION SABAE"></div>
+        <div class="hero-cert">自家用自動車有償貸渡許可　福運輸第500号</div>
+      </div>
+      <nav class="hero-nav">
+        <a href="#youto">こんなとき</a>
+        <a href="#ryokin">料金表</a>
+        <a href="#lineup">ラインナップ</a>
+        <a href="#nagare">ご利用の流れ</a>
+        <a href="#tenpo">店舗情報</a>
+      </nav>
     </div>
-  </div>
+    <div class="hero-body">
+      <div class="hero-copy">
+        <div class="hero-kicker">福井県鯖江市｜整備工場が母体のレンタカー</div>
+        <h1 class="hero-title" style="margin:0;">鯖江のレンタカー、<br>電話一本。</h1>
+        <p class="hero-lead" style="margin:0;">軽トラ・軽バンでの荷物運びから、帰省の足まで。地元の車屋がお応えします。ネット予約フォームはありません——お電話いただければ、その場で空きと料金をお答えします。</p>
+        <div class="hero-tags">
+          <span>軽トラ 4,500円/日〜</span>
+          <span>全車 前後ドラレコ搭載</span>
+          <span>冬期は冬タイヤ標準</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-t">ご予約・空き確認はお電話で</div>
+        <a class="tel-btn" href="tel:0778425105">
+          <span class="s">TEL / タップで発信</span>
+          <span class="n">0778-42-5105</span>
+        </a>
+        <div class="hero-card-note">受付 9:00 - 18:00<br>株式会社ピットステーションSABAE<br>鯖江市鳥羽1丁目4-3</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- こんなとき -->
+  <section id="youto" class="sec youto">
+    <div class="sec-head">
+      <div class="kicker">USE CASES</div>
+      <h2 class="h2" style="margin:0;">こんなときに使われています</h2>
+      <p class="lead" style="margin:0;">用途を電話で伝えていただければ、ぴったりの1台をご案内します。</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <div class="t">運ぶ——引越し・大物・粗大ゴミ</div>
+        <div class="d">家具や家電の運搬、引越しの荷物、処理場への粗大ゴミの持ち込みに。荷台をがんがん使える軽トラと、雨に強い軽バンをご用意しています。軽トラはマニュアル車です（AT限定免許の方には軽バンをご案内します）。</div>
+        <div class="uc-price"><span class="c">軽トラック</span><span class="p">4,500</span><span class="u">円/日（税込）〜</span></div>
+      </div>
+      <div class="uc-card">
+        <div class="t">帰省の足に——駅から、実家から</div>
+        <div class="d">福井への帰省中の移動用に。軽乗用車は全車ナビ・ETC・ドライブレコーダー付き。チャイルドシートをしっかり固定できる車（ISOFIX対応）もあるので、お子さま連れも安心です。</div>
+        <div class="uc-price"><span class="c">軽自動車</span><span class="p">5,500</span><span class="u">円/日（税込）</span></div>
+      </div>
+      <div class="uc-card">
+        <div class="t">もしもの時に——修理・事故のあいだ</div>
+        <div class="d">突然の故障や事故で、お車をお預かりしている間のつなぎに。無料代車では物足りないときの1台としてもどうぞ。保険会社対応のご相談も承ります。</div>
+        <div class="uc-tel">お電話でご相談ください</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金表 -->
+  <section id="ryokin" class="sec ryokin">
+    <div class="sec-head">
+      <div class="kicker">PRICE</div>
+      <h2 class="h2" style="margin:0;">料金表</h2>
+      <p class="lead" style="margin:0;">すべて税込・分かりやすい1日料金です。</p>
+    </div>
+    <div class="price-table">
+      <div class="hd">クラス</div>
+      <div class="hd r">1日料金<span style="font-weight:400;">（税込）</span></div>
+      <div class="hd r">免責補償/日<span style="font-weight:400;">（税込）</span></div>
+      <div class="cls"><span class="nm">軽トラック</span><br><span class="sub">アクティトラック（MT）</span></div>
+      <div class="yen">4,500円</div>
+      <div class="men">1,100円</div>
+      <div class="cls"><span class="nm">軽自動車・軽バン</span><br><span class="sub">N-BOX／タント／スペーシア／N-WGN／ハイゼットカーゴ ほか</span></div>
+      <div class="yen">5,500円</div>
+      <div class="men">1,100円</div>
+      <div class="cls"><span class="nm">コンパクト・ミニバン</span><br><span class="sub">ヤリス 4WD／フリード／フリードスパイク</span></div>
+      <div class="yen">7,700円</div>
+      <div class="men">1,100円</div>
+    </div>
+    <div class="price-notes">※ 軽トラック（アクティトラック）はマニュアル車です。<b>AT限定免許では運転できません</b>（軽バンはATです）。<br>※ 免責補償は<b>ご希望の方のみ</b>の任意加入です。万一の事故のときに、お客さまにご負担いただく金額を抑える補償です（料金は車種を問わず一律）。<br>※ ダブル免責補償（自己負担をさらに軽減）は1,650円/日。<br>※ <b>冬期は冬タイヤを追加料金なしで装着</b>してお渡しします。<br>※ 1週間を超える長期のご利用は、内容を伺ったうえでお見積りします。お電話でご相談ください。<br>※ 車種やご利用状況により金額が変わる場合があります。まずはお電話でお尋ねください。</div>
+  </section>
+
+  <!-- ラインナップ -->
+  <section id="lineup" class="sec lineup">
+    <div class="sec-head">
+      <div class="kicker">LINE-UP</div>
+      <h2 class="h2" style="margin:0;">ラインナップ</h2>
+      <p class="lead" style="margin:0;">軽トラを除く全車にカーナビ・ETC・前後ドライブレコーダーを搭載しています。<br><span class="lu-note">ラインナップは <b>2026年8月26日現在</b> のものです。車両は入れ替わることがあります——最新の在籍状況はお電話でご確認ください。</span></p>
+    </div>
+    <div class="lu-grid">
+      <div class="lu-card">
+        <img src="./r_akuti.jpg" alt="アクティトラック" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag g">運ぶ</span><span class="lu-name">アクティトラック</span></div>
+          <div class="lu-d">軽トラック・2人乗り・MT。荷台に気兼ねなく積める働く1台。ドラレコ付き（ナビ・ETCはありません）。※マニュアル車のためAT限定免許は運転不可。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_hijet.jpg" alt="ハイゼットカーゴ" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag g">運ぶ</span><span class="lu-name">ハイゼットカーゴ</span></div>
+          <div class="lu-d">軽バン・4人乗り・AT。雨の日の荷物運びや配達に。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_nbox.jpg" alt="N-BOX" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag leaf">軽</span><span class="lu-name">N-BOX</span></div>
+          <div class="lu-d">広くて走りやすい人気No.1軽。ISOFIX対応。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_tanto.jpg" alt="タントカスタム" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag leaf">軽</span><span class="lu-name">タントカスタム</span></div>
+          <div class="lu-d">スライドドアで乗り降りらく。お子さま連れに。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_spacia.jpg" alt="スペーシア" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag leaf">軽</span><span class="lu-name">スペーシア</span></div>
+          <div class="lu-d">背高でゆったり。買い物にも帰省にも。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_spike.jpg" alt="フリードスパイク" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag r">ミニバン</span><span class="lu-name">フリードスパイク</span></div>
+          <div class="lu-d">人も荷物もたっぷり。自転車も積める広さ。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_nwgn4762.jpg" alt="N-WGN" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag leaf">軽</span><span class="lu-name">N-WGN</span></div>
+          <div class="lu-d">気軽に使えるスタンダード軽。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_yaris.jpg" alt="ヤリス 4WD" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag r">4WD</span><span class="lu-name">ヤリス 4WD</span></div>
+          <div class="lu-d">コンパクト・5人乗り。雪の福井でも安心の四輪駆動。</div>
+        </div>
+      </div>
+      <div class="lu-card">
+        <img src="./r_freed.jpg" alt="フリード" loading="lazy">
+        <div class="lu-body">
+          <div class="lu-head"><span class="tag r">ミニバン</span><span class="lu-name">フリード</span></div>
+          <div class="lu-d"><b>ハイブリッド。</b>人も荷物もゆったり。家族でのお出かけや、距離を走る帰省に。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ご利用の流れ -->
+  <section id="nagare" class="sec nagare">
+    <div class="sec-head">
+      <div class="kicker mint">FLOW</div>
+      <h2 class="h2 w" style="margin:0;">ご利用の流れ</h2>
+      <p class="lead" style="margin:0;">面倒な会員登録はありません。</p>
+    </div>
+    <div class="fl-grid">
+      <div class="fl-card">
+        <div class="no">01</div>
+        <div class="t">お電話ください</div>
+        <div class="d">ご希望の日にちと用途をお聞かせください。その場で空き状況と料金をお答えします。</div>
+        <div class="tel"><a href="tel:0778425105">0778-42-5105</a>（9:00〜18:00）</div>
+      </div>
+      <div class="fl-card">
+        <div class="no">02</div>
+        <div class="t">免許証のご提示・料金のお支払い</div>
+        <div class="d">店舗（鯖江市鳥羽1丁目4-3）にて、運転される方全員の免許証をご提示ください。ご利用料金は出発前にお支払いいただきます（現金・クレジットカード・PayPay）。</div>
+      </div>
+      <div class="fl-card">
+        <div class="no">03</div>
+        <div class="t">出発</div>
+        <div class="d">お手続き後、車両の説明をしてお渡しします。返却時間はお気軽にご相談ください。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗・会社情報 -->
+  <section id="tenpo" class="sec tenpo">
+    <div class="sec-head">
+      <div class="kicker">SHOP</div>
+      <h2 class="h2" style="margin:0;">店舗・会社情報</h2>
+    </div>
+    <div class="tp-grid">
+      <div class="tp-table">
+        <div class="tp-row"><div class="k">会社名</div><div class="v b">株式会社ピットステーションSABAE</div></div>
+        <div class="tp-row"><div class="k">所在地</div><div class="v">〒916-0013　福井県鯖江市鳥羽1丁目4-3</div></div>
+        <div class="tp-row"><div class="k">電話</div><div class="v"><a href="tel:0778425105" style="font-weight:700;">0778-42-5105</a>（受付 9:00〜18:00）</div></div>
+        <div class="tp-row"><div class="k">お支払い</div><div class="v">現金／クレジットカード／PayPay（ご利用料金は先払いです）</div></div>
+        <div class="tp-row"><div class="k">定休日</div><div class="v" style="text-wrap:pretty;">土曜・日曜・祝日（会社カレンダーによる）<br><span class="tp-note">※定休日のお渡し・ご返却はお電話でご相談ください</span></div></div>
+        <div class="tp-row"><div class="k">許可</div><div class="v">自家用自動車有償貸渡許可　<span style="font-weight:700;color:var(--green2);">福運輸第500号</span></div></div>
+        <div class="tp-row"><div class="k">会社HP</div><div class="v"><a href="https://www.pitstation-sabae.co.jp/" style="font-weight:500;">株式会社ピットステーションSABAE</a>（車検・整備・修理はこちら）</div></div>
+      </div>
+      <div class="tp-side">
+        <div class="map-box">
+          <iframe title="株式会社ピットステーションSABAE の地図" src="https://maps.google.com/maps?q=%E7%A6%8F%E4%BA%95%E7%9C%8C%E9%AF%96%E6%B1%9F%E5%B8%82%E9%B3%A5%E7%BE%BD1%E4%B8%81%E7%9B%AE4-3&amp;z=16&amp;output=embed" loading="lazy"></iframe>
+        </div>
+        <div class="tp-quote">整備工場が母体のレンタカーです。日々の点検整備も自社の国家資格整備士が行っています。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="ft-grid">
+      <div class="ft-l">
+        <div class="logo-chip ft"><img src="./logo.png" alt="PITSTATION SABAE"></div>
+        <div class="ft-name">株式会社ピットステーションSABAE　レンタカー</div>
+        <div class="ft-info">〒916-0013　福井県鯖江市鳥羽1丁目4-3<br>TEL <span style="font-weight:700;color:#ffffff;">0778-42-5105</span>（受付 9:00 - 18:00）<br>自家用自動車有償貸渡許可　福運輸第500号</div>
+      </div>
+      <a class="ft-tel" href="tel:0778425105">
+        <span class="s">ご予約・空き確認</span>
+        <span class="n">0778-42-5105</span>
+      </a>
+    </div>
+    <div class="ft-copy">© 株式会社ピットステーションSABAE</div>
+  </footer>
+
 </div>
 
-<section>
-  <div class="wrap">
-    <h2>こんなときに使われています</h2>
-    <p class="h2sub">用途を電話で伝えていただければ、ぴったりの1台をご案内します</p>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">🚚</div>
-        <h3>運ぶ——引越し・大物・粗大ゴミ</h3>
-        <p>家具や家電の運搬、引越しの荷物、処理場への粗大ゴミの持ち込みに。荷台をがんがん使える軽トラと、雨に強い軽バンをご用意しています。軽トラはマニュアル車です（AT限定免許の方には軽バンをご案内します）。</p>
-        <div class="price">軽トラック <b>4,500</b>円/日（税込）〜</div>
-      </div>
-      <div class="card">
-        <div class="icon">🏠</div>
-        <h3>帰省の足に——駅から、実家から</h3>
-        <p>福井への帰省中の移動用に。軽乗用車は全車ナビ・ETC・ドライブレコーダー付き。チャイルドシートをしっかり固定できる車（ISOFIX対応）もあるので、お子さま連れも安心です。</p>
-        <div class="price">軽自動車 <b>5,500</b>円/日（税込）</div>
-      </div>
-      <div class="card">
-        <div class="icon">🔧</div>
-        <h3>もしもの時に——修理・事故のあいだ</h3>
-        <p>突然の故障や事故で、お車をお預かりしている間のつなぎに。無料代車では物足りないときの1台としてもどうぞ。保険会社対応のご相談も承ります。</p>
-        <div class="price">お電話でご相談ください</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>料金表</h2>
-    <p class="h2sub">すべて税込・分かりやすい1日料金です</p>
-    <div class="tablewrap">
-      <table>
-        <tr><th>クラス</th><th>1日料金</th><th>免責補償/日</th></tr>
-        <tr>
-          <td class="cls">軽トラック<small>アクティトラック（MT）</small></td>
-          <td><b>4,500円</b></td><td>1,100円</td>
-        </tr>
-        <tr>
-          <td class="cls">軽自動車・軽バン<small>N-BOX／タント／スペーシア／N-WGN／ハイゼットカーゴ ほか</small></td>
-          <td><b>5,500円</b></td><td>1,100円</td>
-        </tr>
-        <tr>
-          <td class="cls">コンパクト・ミニバン<small>ヤリス4WD／フリードスパイク</small></td>
-          <td><b>7,700円</b></td><td>1,100円</td>
-        </tr>
-      </table>
-    </div>
-    <p class="note">
-      ※ 軽トラック（アクティトラック）はマニュアル車です。<b>AT限定免許では運転できません</b>（軽バンはATです）。<br>
-      ※ ダブル免責補償（自己負担をさらに軽減）は1,650円/日。<br>
-      ※ <b>冬期は冬タイヤを追加料金なしで装着</b>してお渡しします。<br>
-      ※ 1週間を超える長期のご利用は、内容を伺ったうえでお見積りします。お電話でご相談ください。<br>
-      ※ 車種やご利用状況により金額が変わる場合があります。まずはお電話でお尋ねください。
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>ラインナップ（9台）</h2>
-    <p class="h2sub">軽トラを除く全車に カーナビ・ETC・前後ドライブレコーダーを搭載</p>
-    <div class="fleet">
-      <div class="car"><span class="tag tr">運ぶ</span><h4>アクティトラック</h4><p>軽トラック・2人乗り・MT。荷台に気兼ねなく積める働く1台。ドラレコ付き（ナビ・ETCはありません）。※マニュアル車のためAT限定免許は運転不可。</p></div>
-      <div class="car"><span class="tag tr">運ぶ</span><h4>ハイゼットカーゴ</h4><p>軽バン・4人乗り・AT。雨の日の荷物運びや配達に。</p></div>
-      <div class="car"><span class="tag">軽</span><h4>N-BOX</h4><p>広くて走りやすい人気No.1軽。ISOFIX対応。</p></div>
-      <div class="car"><span class="tag">軽</span><h4>タントカスタム</h4><p>スライドドアで乗り降りらく。お子さま連れに。</p></div>
-      <div class="car"><span class="tag">軽</span><h4>スペーシア</h4><p>背高でゆったり。買い物にも帰省にも。</p></div>
-      <div class="car"><span class="tag">軽</span><h4>N-WGNカスタム</h4><p>落ち着いた内装の軽。日常の足に。</p></div>
-      <div class="car"><span class="tag">軽</span><h4>N-WGN</h4><p>気軽に使えるスタンダード軽。</p></div>
-      <div class="car"><span class="tag">4WD</span><h4>ヤリス AWD</h4><p>コンパクト・5人乗り。雪の福井でも安心の四輪駆動。</p></div>
-      <div class="car"><span class="tag">5人＋荷物</span><h4>フリードスパイク</h4><p>人も荷物もたっぷり。自転車も積める広さ。</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>ご利用の流れ</h2>
-    <p class="h2sub">面倒な会員登録はありません</p>
-    <div class="flow">
-      <div class="step"><h3>お電話ください</h3><p>ご希望の日にちと用途をお聞かせください。その場で空き状況と料金をお答えします。<br><a href="tel:0778-42-5105"><b>0778-42-5105</b></a>（9:00〜18:00）</p></div>
-      <div class="step"><h3>免許証のご提示・料金のお支払い</h3><p>店舗（鯖江市鳥羽1丁目4-3）にて、運転される方全員の免許証をご提示ください。<b>ご利用料金は出発前にお支払いいただきます</b>（現金・クレジットカード・PayPay）。</p></div>
-      <div class="step"><h3>出発</h3><p>お手続き後、車両の説明をしてお渡しします。返却時間はお気軽にご相談ください。</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>店舗・会社情報</h2>
-    <div class="company">
-      <dl>
-        <dt>会社名</dt><dd>株式会社ピットステーションSABAE</dd>
-        <dt>所在地</dt><dd>〒916-0013 福井県鯖江市鳥羽1丁目4-3　<a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E4%BA%95%E7%9C%8C%E9%AF%96%E6%B1%9F%E5%B8%82%E9%B3%A5%E7%BE%BD1%E4%B8%81%E7%9B%AE4-3" target="_blank" rel="noopener">地図を見る</a></dd>
-        <dt>電話</dt><dd><a href="tel:0778-42-5105">0778-42-5105</a>（受付 9:00〜18:00）</dd>
-        <dt>お支払い</dt><dd>現金／クレジットカード／PayPay（ご利用料金は先払いです）</dd>
-        <dt>定休日</dt><dd>土曜・日曜・祝日（会社カレンダーによる）※定休日のお渡し・ご返却はお電話でご相談ください</dd>
-        <dt>事業</dt><dd>自動車販売・整備・車検・レンタカー</dd>
-        <dt>会社HP</dt><dd><a href="https://www.pitstation-sabae.co.jp/" target="_blank" rel="noopener">株式会社ピットステーションSABAE</a>（車検・整備・修理はこちら）</dd>
-      </dl>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div>整備工場が母体のレンタカーです。日々の点検整備も自社の国家資格整備士が行っています。</div>
-  <div>© 株式会社ピットステーションSABAE</div>
-</footer>
-
-<div class="callbar">
-  <div class="sub">ご予約・空き確認<br>受付 9:00〜18:00</div>
-  <a href="tel:0778-42-5105">📞 0778-42-5105</a>
+<!-- スマホ固定の電話バー -->
+<div class="call-bar">
+  <a href="tel:0778425105">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" style="flex:0 0 auto;"><path d="M6.5 3.5h3l1.5 4-2 1.4a12 12 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg>
+    <span class="in">
+      <span class="t">電話する　0778-42-5105</span>
+      <span class="s">受付 9:00 - 18:00／土日祝 定休</span>
+    </span>
+  </a>
 </div>
-
 </body>
 </html>
